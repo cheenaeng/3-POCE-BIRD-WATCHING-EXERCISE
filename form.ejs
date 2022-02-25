@@ -1,0 +1,117 @@
+<%- include('header') -%>
+
+  <body>
+    <div class="container">
+      <div class="form-header p-1">Gotta know em All</div>
+    <div class="p-3">
+      <form action="/note" method="POST" class="report-form">
+        <div class="row mb-2">
+          <label for="habitat" class="col-sm-2 col-form-label">Habitat</label>
+          <div class="col-sm-10">
+            <input type="text"  class="form-control" id="habitat" name="habitat" />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="date" class="col-sm-2 col-form-label">Date</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="date" name="date" />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="appearance" class="col-sm-2 col-form-label"
+            >Appearance</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="appearance"
+              name="appearance"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="Behaviour" class="col-sm-2 col-form-label">Behaviour
+            <p class="text-muted text-small fw-light">(You can choose more than 1)</p>
+          </label>
+           <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="behavior_ids" value="walking">
+              <label class="form-check-label" for="walking" name="behavior_ids">
+                Walking
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  name="behavior_ids" value="bathing" id="bathing" checked>
+              <label class="form-check-label" for="bathing">
+                Bathing
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  name="behavior_ids" value="flying" id="flying">
+              <label class="form-check-label" for="flying">
+                Flying
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  name="behavior_ids" value="pecking" id="pecking">
+              <label class="form-check-label" for="flying">
+                Pecking
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  name="behavior_ids" value="hunting" id="hunting">
+              <label class="form-check-label" for="hunting">
+                Hunting
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="flocksize" class="col-sm-2 col-form-label"
+            >Flock Size</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="number"
+              class="form-control"
+              id="flocksize"
+              name="flocksize"
+              min="1"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+            <label for="speciesName" class="col-sm-2 col-form-label">Species</label>
+            <div class="col-sm-10">
+            <select class="form-select" aria-label="Default select example" id = "speciesDropDown" name="speciesName" onchange="chooseSpecies()">
+              <option disabled selected value>---Choose If Available---</option>
+              <% speciesName.forEach((species) => { %>
+              <option value="<%= species.id %>"><%= species.name %></option>
+              <% }); %>
+            </select>
+            <input type="text" name="speciesChosen" id="speciesChosen" class="mt-2">
+          </div>
+        
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-10">
+            <input
+              type="submit"
+              class="form-control"
+              id="submit"
+              value="submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </body>
+  <script>
+    function chooseSpecies() {
+      var mylist = document.getElementById("speciesDropDown");
+      document.getElementById("speciesChosen").value = mylist.options[mylist.selectedIndex].text;
+      }
+  </script>
+</html>

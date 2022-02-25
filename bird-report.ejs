@@ -1,0 +1,26 @@
+<%- include('header')-%>
+  <body>
+    <div class="container">
+      <div class="m-2 border">
+     <ul>
+       <li>HABITAT: <%= report[0].habitat%></li>
+       <li>DATE OF SIGHTING:<%= report[0].date%></li>
+       <li>BEHAVIOUR:
+       <%report.forEach(result =>{ %>
+       <%= result.behaviour%><%})%>
+       </li>
+       <li>APPEARANCE:<%= report[0].appearance%></li>
+       <li>FLOCK SIZE:<%= report[0].flock_size%></li>
+       <li>COMMENTS:</li>
+       <form action="/note/<%=noteId%>" method="POST">
+        <div>
+          <label for="comments"></label>
+          <textarea name="comments" id="comments" cols="50" rows="5"></textarea>
+        </div>
+        <input type="submit" value="submit">
+       </form>
+     </ul>
+    </div>
+    </div>
+  </body>
+</html>

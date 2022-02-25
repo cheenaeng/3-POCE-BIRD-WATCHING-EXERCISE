@@ -1,0 +1,72 @@
+<%- include('header') -%>
+
+  <body>
+    <div class="container">
+    <form action="/note/<%=requestedId%>/edit?_method=PUT" method="POST">
+      <div class="row mb-3">
+          <%report.forEach(result =>{ %>
+        <label for="habitat" class="col-sm-2 col-form-label">Habitat</label>
+        <div class="col-sm-10">
+          <input type="text" id="habitat" name="habitat" value="<%=result.habitat%>" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="date" class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="date" name="date" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="appearance" class="col-sm-2 col-form-label" 
+          >Appearance</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="appearance"
+            name="appearance"
+            value="<%=result.appearance%>"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="behaviour" class="col-sm-2 col-form-label">behaviour</label>
+        <div class="col-sm-10">
+          <textarea
+            name="behaviour"
+            id="behaviour"
+            cols="30"
+            rows="10"
+          ><%=result.behaviour%></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="flocksize" class="col-sm-2 col-form-label"
+          >Flock Size</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="flocksize"
+            name="flocksize"
+            value="<%=result.flock_size%>"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-10">
+          <input
+            type="submit"
+            class="form-control"
+            id="submit"
+            value="submit"
+          />
+          <%})%>
+        </div>
+      </div>
+    </form>
+    </div>
+  </body>
+</html>

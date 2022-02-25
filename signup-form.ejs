@@ -1,0 +1,24 @@
+<%- include('header') -%>
+
+<body>
+  <div class="container">
+    <form action="/signup" method="POST">
+      <div class="form-control">
+        <label for="text">Username:</label>
+        <input type="username" name="username" />
+      </div>
+      <div class="form-control">
+        <label for="text">Email:</label>
+        <input type="text" name="email" />
+      </div>
+      <div class="form-control">
+        <label for="password">Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div class="form-control">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>

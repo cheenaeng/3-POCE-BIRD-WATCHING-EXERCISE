@@ -1,0 +1,41 @@
+<%- include('header') -%>
+
+<body>
+  <div class="container">
+    <div class="header d-flex p-3">
+      <img src="images/cute-bird-icon.png" alt="" id="bird-cover">
+      <div class="welcome">
+        <div class="birds-title">Birds </div>
+        <p>Gotta know em All</p>
+      </div>
+    </div>
+
+    <div class="welcome-text p-2">
+      <div class="d-flex justify-content-center">
+        <h2><span class="login-text">Welcome Back </span></h2>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="text-muted">Login to your account</p>
+      </div>
+      </div>
+    </div>
+    
+    <div class="form-outline p-3">
+      <form action="/login" method="POST">
+        <div class="form-control d-flex  mb-3 p-2 justify-content-center">    
+          <label for="text">Email:</label>
+          <input type="text" name="email" />
+        </div>
+        <div class="form-control d-flex mb-3 p-2 justify-content-center">
+          <label for="password">Password:</label>
+           <input type="password" name="password" />
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</body>
+</html>
